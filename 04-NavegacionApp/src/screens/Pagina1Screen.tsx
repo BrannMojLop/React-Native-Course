@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
-import {DrawerScreenProps} from '@react-navigation/drawer';
 import {Button, Text, View, TouchableOpacity} from 'react-native';
 import {styles} from '../theme/appTheme';
-import {useEffect} from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props extends StackScreenProps<any, any> {}
 // interface Props extends DrawerScreenProps<any, any> {}
@@ -24,7 +23,9 @@ export const Pagina1Screen = ({navigation}: Props) => {
         title="Ir pagina 2"
         onPress={() => navigation.navigate('Pagina2Screen')}
       />
-      <Text>Navegar con argumentos</Text>
+      <Text style={{marginVertical: 20, fontSize: 20, marginLeft: 5}}>
+        Navegar con argumentos
+      </Text>
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity
           style={{...styles.botonGrande, backgroundColor: '#FF9427'}}
@@ -34,6 +35,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
               nombre: 'Pedro',
             })
           }>
+          <Icon name="person" size={40} color="white" />
           <Text style={styles.botonGrandeTexto}>Pedro</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -44,6 +46,7 @@ export const Pagina1Screen = ({navigation}: Props) => {
               nombre: 'Maria',
             })
           }>
+          <Icon name="woman" size={40} color="white" />
           <Text style={styles.botonGrandeTexto}>Maria</Text>
         </TouchableOpacity>
       </View>
