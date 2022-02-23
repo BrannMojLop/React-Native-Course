@@ -26,4 +26,24 @@ export const menuItems: MenuItem[] = [
     icon: 'document-text-outline',
     component: 'TextInputScreen',
   },
+  {
+    name: 'Pull To Refresh',
+    icon: 'refresh-outline',
+    component: 'PullToRefreshScreen',
+  },
+  {
+    name: 'Section List',
+    icon: 'list-outline',
+    component: 'CustomSectionList',
+  },
+  {
+    name: 'Modal Screen',
+    icon: 'copy-outline',
+    component: 'ModalScreen',
+  },
+  {
+    name: 'Infinite Scroll',
+    icon: 'download-outline',
+    component: 'InfiniteScrollScreen',
+  },
 ];
