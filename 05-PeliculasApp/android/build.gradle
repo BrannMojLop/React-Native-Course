@@ -40,3 +40,13 @@ allprojects {
         maven { url 'https://www.jitpack.io' }
     }
 }
+
+subprojects {project ->
+    if (project.name.contains('react-native-fetch-blob')) {
+        buildscript {
+            repositories {
+                maven { url "https://dl.bintray.com/android/android-tools/"  }
+            }    
+        }
+    }
+}

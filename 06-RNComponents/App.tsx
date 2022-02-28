@@ -1,15 +1,32 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {Navigation} from './src/navigation/Navigation';
 import {LogBox} from 'react-native';
+import {ThemeProvider} from './src/context/theme/ThemeContext';
+
+// const customTheme: Theme = {
+//   dark: true,
+//   colors: {
+//     ...DefaultTheme.colors,
+//     // primary: 'string';
+//     // background: 'string';
+//     // card: 'string';
+//     // text: 'string';
+//     // border: 'string';
+//     // notification: 'string';
+//   },
+// };
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <AppState>
       <Navigation />
-    </NavigationContainer>
+    </AppState>
   );
+};
+
+const AppState = ({children}: any) => {
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 LogBox.ignoreLogs([

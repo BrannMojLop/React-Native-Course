@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Animated, Button, StyleSheet, View} from 'react-native';
+import {ThemeContext} from '../context/theme/ThemeContext';
 import {useAnimation} from '../hooks/useAnimation';
 
 export const Animation101Screen = () => {
   const {opacity, fadeIn, fadeOut, position, startMovingPosition} =
     useAnimation();
+  const {
+    theme: {colors},
+  } = useContext(ThemeContext);
 
   return (
     <View style={styles.container}>
@@ -12,6 +16,7 @@ export const Animation101Screen = () => {
         style={{
           ...styles.purpleBox,
           opacity,
+          backgroundColor: colors.primary,
           marginBottom: 20,
           transform: [
             {
@@ -39,7 +44,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   purpleBox: {
-    backgroundColor: '#5856D6',
     width: 150,
     height: 150,
   },

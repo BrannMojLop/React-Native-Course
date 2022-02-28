@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -10,10 +10,15 @@ import {
 } from 'react-native';
 import {CustomSwitch} from '../components/CustomSwitch';
 import {HeaderTitle} from '../components/HeaderTitle';
+import {ThemeContext} from '../context/theme/ThemeContext';
 import {useForm} from '../hooks/useForm';
 import {styles} from '../theme/appTheme';
 
 export const TextInputScreen = () => {
+  const {
+    theme: {colors},
+  } = useContext(ThemeContext);
+
   const {form, onChange, isSubscribed} = useForm({
     name: '',
     email: '',
@@ -28,14 +33,22 @@ export const TextInputScreen = () => {
         <View style={styles.globalMargin}>
           <HeaderTitle title="TextInputs" />
           <TextInput
-            style={stylesScreen.inputStyle}
+            style={{
+              ...stylesScreen.inputStyle,
+              color: colors.text,
+              borderColor: colors.text,
+            }}
             placeholder="Ingrese su nombre"
             autoCorrect={false}
             autoCapitalize="words"
             onChangeText={value => onChange(value, 'name')}
           />
           <TextInput
-            style={stylesScreen.inputStyle}
+            style={{
+              ...stylesScreen.inputStyle,
+              color: colors.text,
+              borderColor: colors.text,
+            }}
             placeholder="Ingrese su email"
             autoCorrect={false}
             autoCapitalize="none"
@@ -43,7 +56,11 @@ export const TextInputScreen = () => {
             onChangeText={value => onChange(value, 'email')}
           />
           <TextInput
-            style={stylesScreen.inputStyle}
+            style={{
+              ...stylesScreen.inputStyle,
+              color: colors.text,
+              borderColor: colors.text,
+            }}
             placeholder="Ingrese su telefono"
             keyboardType="number-pad"
             onChangeText={value => onChange(value, 'phone')}
